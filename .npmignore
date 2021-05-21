@@ -1,6 +1,5 @@
 src
-dist/demo.js
-dist/demo.js.map
+dist/demo*
 .gitignore
 .editorconfig
 .npmignore
