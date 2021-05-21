@@ -148,7 +148,11 @@ export default {
     withAlpha: {
       type: Boolean,
       default: true,
-    }
+    },
+    inputDebounceMs: {
+      type: Number,
+      default: 900,
+    },
   },
 
   components: {
@@ -437,7 +441,7 @@ export default {
   },
 
   created () {
-    this.handleInput = debounce(this.handleInput.bind(this), 250)
+    this.handleInput = debounce(this.handleInput.bind(this), this.inputDebounceMs)
     this.emitChange = debounce(this.emitChange.bind(this), 250)
 
     this.updateColorModel()
