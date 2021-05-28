@@ -294,13 +294,14 @@ export default {
       const rgba = parse2rgb(val)
       const alpha = rgba[3] == null ? 1 : rgba[3]
       const [hue, saturation, value] = rgb2hsv(rgba)
+      const { withAlpha } = this
 
       // format of alpha: `.2f`
       // according to Chrome DevTool
       const _alpha = parseFloat(alpha.toFixed(2))
 
       return {
-        alpha: _alpha,
+        alpha: withAlpha ? _alpha : 1,
         hue: hue / 360,
         saturation: {
           x: saturation / 100,
